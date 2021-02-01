@@ -1,0 +1,262 @@
+----------------------------------------------------------------------
+Beginning MPAS-atmosphere Output Log File for task       0 of     160
+    Opened at 2021/02/01 15:09:23
+----------------------------------------------------------------------
+
+ 
+ Using default double-precision reals
+ 
+ Reading namelist from file namelist.atmosphere
+ *** Encountered an issue while attempting to read namelist record assimilation
+     The following values will be used for variables in this record:
+ 
+         config_jedi_da = F
+ 
+ 
+ ----- Setting up physics suite 'mesoscale_reference' -----
+ 
+     config_microp_scheme       = mp_wsm6
+     config_convection_scheme   = cu_ntiedtke
+     config_pbl_scheme          = bl_ysu
+     config_gwdo_scheme         = bl_ysu_gwdo
+     config_radt_cld_scheme     = cld_fraction
+     config_radt_lw_scheme      = rrtmg_lw
+     config_radt_sw_scheme      = rrtmg_sw
+     config_sfclayer_scheme     = sf_monin_obukhov
+     config_lsm_scheme          = noah
+ 
+ ----- Setting up package variables -----
+ 
+     mp_kessler_in           = F
+     mp_thompson_in          = F
+     mp_wsm6_in              = T
+     cu_grell_freitas_in     = F
+     cu_kain_fritsch_in      = F
+     cu_tiedtke_in           = T
+     bl_mynn_in              = F
+     bl_ysu_in               = T
+ 
+ Reading streams configuration from file streams.atmosphere
+ Found mesh stream with filename template Gansu.init.nc
+ Using default io_type for mesh stream
+  ** Attempting to bootstrap MPAS framework using stream: input
+ Bootstrapping framework with mesh fields from input file 'Gansu.init.nc'
+  * Requested field rainprod is deactivated due to packages, or is a scratch variable.
+  * Requested field evapprod is deactivated due to packages, or is a scratch variable.
+  * Requested field nt_c is deactivated due to packages, or is a scratch variable.
+  * Requested field mu_c is deactivated due to packages, or is a scratch variable.
+  * Requested field nca is deactivated due to packages, or is a scratch variable.
+  * Requested field cubot is deactivated due to packages, or is a scratch variable.
+  * Requested field cutop is deactivated due to packages, or is a scratch variable.
+  * Requested field w0avg is deactivated due to packages, or is a scratch variable.
+  * Requested field qcg is deactivated due to packages, or is a scratch variable.
+  * Requested field sh3d is deactivated due to packages, or is a scratch variable.
+  * Requested field qke is deactivated due to packages, or is a scratch variable.
+  * Requested field qke_adv is deactivated due to packages, or is a scratch variable.
+  * Requested field cov is deactivated due to packages, or is a scratch variable.
+  * Requested field qsq is deactivated due to packages, or is a scratch variable.
+  * Requested field tsq is deactivated due to packages, or is a scratch variable.
+  * Requested field tke_pbl is deactivated due to packages, or is a scratch variable.
+  * Requested field el_pbl is deactivated due to packages, or is a scratch variable.
+  * Requested field ch is deactivated due to packages, or is a scratch variable.
+  * Requested field k22_shallow is deactivated due to packages, or is a scratch variable.
+  * Requested field kbcon_shallow is deactivated due to packages, or is a scratch variable.
+  * Requested field ktop_shallow is deactivated due to packages, or is a scratch variable.
+  * Requested field ktop_deep is deactivated due to packages, or is a scratch variable.
+  * Requested field xmb_total is deactivated due to packages, or is a scratch variable.
+  * Requested field xmb_shallow is deactivated due to packages, or is a scratch variable.
+  * Requested field qc_cu is deactivated due to packages, or is a scratch variable.
+  * Requested field qi_cu is deactivated due to packages, or is a scratch variable.
+  * Requested field rqrcuten is deactivated due to packages, or is a scratch variable.
+  * Requested field rqscuten is deactivated due to packages, or is a scratch variable.
+  * Requested field rniblten is deactivated due to packages, or is a scratch variable.
+  * Requested field u_amb is deactivated due to packages, or is a scratch variable.
+  * Requested field rho_amb is deactivated due to packages, or is a scratch variable.
+  * Requested field theta_amb is deactivated due to packages, or is a scratch variable.
+ 
+Parsing run-time I/O configuration from streams.atmosphere ...
+ 
+ -----  found immutable stream "input" in streams.atmosphere  -----
+         filename template:  Gansu.init.nc
+         filename interval:  none
+         direction:          input
+         reference time:     initial_time
+         record interval:    -
+         input alarm:        initial_only
+ 
+ -----  found immutable stream "restart" in streams.atmosphere  -----
+         filename template:  restart.$Y-$M-$D_$h.$m.$s.nc
+         filename interval:  3_00:00:00
+         direction:          input, output
+         reference time:     initial_time
+         record interval:    -
+         input alarm:        initial_only
+         output alarm:       3_00:00:00
+ 
+ -----  found immutable stream "iau" in streams.atmosphere  -----
+         filename template:  x1.40962.AmB.$Y-$M-$D_$h.$m.$s.nc
+         filename interval:  none
+         direction:          input
+         reference time:     initial_time
+         record interval:    -
+         input alarm:        initial_only
+         package:            iau
+
+ 
+ -----  found immutable stream "lbc_in" in streams.atmosphere  -----
+         filename template:  lbc.$Y-$M-$D_$h.$m.$s.nc
+         filename interval:  3:00:00
+         direction:          input
+         reference time:     initial_time
+         record interval:    -
+         input alarm:        3:00:00
+         package:            limited_area
+
+ 
+ -----  found stream "output" in streams.atmosphere  -----
+         filename template:  history.$Y-$M-$D_$h.$m.$s.nc
+         filename interval:  1:00:00
+         direction:          output
+         reference time:     initial_time
+         record interval:    -
+         output alarm:       1:00:00
+ 
+ -----  found stream "diagnostics" in streams.atmosphere  -----
+         filename template:  diag.$Y-$M-$D_$h.$m.$s.nc
+         filename interval:  1:00:00
+         direction:          output
+         reference time:     initial_time
+         record interval:    -
+         output alarm:       1:00:00
+ 
+ -----  found stream "surface" in streams.atmosphere  -----
+         filename template:  x1.40962.sfc_update.nc
+         filename interval:  none
+         direction:          input
+         reference time:     initial_time
+         record interval:    -
+         input alarm:        none
+ 
+ ----- done parsing run-time I/O from streams.atmosphere -----
+
+  ** Validating streams
+ 
+ 
+ Reading dimensions from input streams ...
+ 
+ ----- reading dimensions from stream 'input' using file Gansu.init.nc
+        nVertLevels = 65
+        nCells = 122776
+        nEdges = 369644
+        nVertices = 246869
+        TWO = 2
+        maxEdges = 7
+        maxEdges2 = 14
+        R3 = 3
+        vertexDegree = 3
+        nVertLevelsP1 = 66
+        FIFTEEN = 15
+        nMonths = 12
+        nSoilLevels = 4
+ 
+   *** unable to open input file restart.2020-08-06_12.00.00.nc for stream 'restart'
+ 
+   *** unable to open input file x1.40962.AmB.2020-08-06_12.00.00.nc for stream 'iau'
+ 
+ ----- reading dimensions from stream 'lbc_in' using file lbc.2020-08-06_12.00.00.nc
+        nVertLevels = 65
+        nCells = 122776
+        nEdges = 369644
+        nVertLevelsP1 = 66
+ 
+   *** unable to open input file x1.40962.sfc_update.nc for stream 'surface'
+ 
+ ----- done reading dimensions from input streams -----
+ 
+ 
+ Processing decomposed dimensions ...
+ 
+  ----- done processing decomposed dimensions -----
+ 
+ 
+ Assigning remaining dimensions from definitions in Registry.xml ...
+        THREE = 3
+        TWENTYONE = 21
+        nLags = 140 (input_soil_temperature_lag)
+        nOznLevels = 59 (noznlev)
+        nAerLevels = 29 (naerlev)
+        cam_dim1 = 4 (camdim1)
+        nVertLevelsP2 = 67
+        nIsoLevelsT = 5
+        nIsoLevelsZ = 13
+ 
+  ----- done assigning dimensions from Registry.xml -----
+ 
+ 
+WARNING: Variable qi not in input file.
+WARNING: Variable qs not in input file.
+WARNING: Variable qg not in input file.
+ 
+ Checking consistency of limited-area settings...
+  - config_apply_lbcs = T
+  - Maximum value in bdyMaskCell = 7
+  - Input interval for 'lbc_in' stream = '0000000000_003:000:000'
+  ----- done checking limited-area settings -----
+ 
+      DT_RADTLW   =1800.00000000000
+      DT_RADTSW   =1800.00000000000
+      DT_CU       =18.0000000000000
+      DT_PBL      =18.0000000000000
+      IMS =1   IME =760
+      JMS =1   JME =1
+      KMS =1   KME =66
+      IDS =1   IDE =761
+      JDS =1   JDE =2
+      KDS =1   KDE =66
+      ITS =1   ITE =760
+      JTS =1   JTE =1
+      KTS =1   KTE =65
+ --- specifics on cloud microphysics option microp_scheme = mp_wsm6
+ --- dt_microp = 18.0000000000000
+ --- n_microp  = 1
+ --- has_reqc  = 0
+ --- has_reqi  = 0
+ --- has_reqs  = 0
+     skipping over lutype = OLD
+     skipping over lutype = USGS
+     landuse type = MODIFIED_IGBP_MODIS_NOAH found          33  categories           2  seasons
+ 
+ --- initialize NOAH LSM tables
+     skipping over lutype = USGS
+     landuse type = MODIFIED_IGBP_MODIS_NOAH found          20  categories
+     end read VEGPARM.TBL
+     input soil texture classification = STAS
+     soil texture classification = STAS found          19  categories
+     end read SOILPARM.TBL
+     end read GENPARM.TBL
+ --- end initialize NOAH LSM tables
+ 
+ min/max of meshScalingDel2 = 1.05466481859055 1.28339471880410
+ min/max of meshScalingDel4 = 1.17312253467452 2.11388201359154
+ Timing for diagnostic computation: 0.753076076507568 s
+ Timing for stream output: 35.4858210086823 s
+WARNING: Variable lbc_qi not in input file.
+WARNING: Variable lbc_qs not in input file.
+WARNING: Variable lbc_qg not in input file.
+ 
+ Begin timestep 2020-08-06_12:00:00
+WARNING: Variable lbc_qi not in input file.
+WARNING: Variable lbc_qs not in input file.
+WARNING: Variable lbc_qg not in input file.
+ ----------------------------------------------------------------------
+ Updated lateral boundary conditions. LBCs are now valid
+ from 2020-08-06_12:00:00 to 2020-08-06_15:00:00
+ ----------------------------------------------------------------------
+ --- time to update background surface albedo, greeness fraction.
+ --- time to run the LW radiation scheme L_RADLW =T
+ --- time to run the SW radiation scheme L_RADSW =T
+ --- time to run the convection scheme L_CONV    =T
+ --- time to update the ozone climatology for RRTMG radiation codes
+ --- time to apply limit to accumulated rainc and rainnc L_ACRAIN   =F
+ --- time to apply limit to accumulated radiation diags. L_ACRADT   =F
+ --- time to calculate additional physics_diagnostics               =F

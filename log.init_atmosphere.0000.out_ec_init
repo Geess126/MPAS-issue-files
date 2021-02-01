@@ -1,0 +1,817 @@
+----------------------------------------------------------------------
+Beginning MPAS-init_atmosphere Output Log File for task       0 of     160
+    Opened at 2021/02/01 10:55:15
+----------------------------------------------------------------------
+
+ 
+ Using default double-precision reals
+ 
+ Reading namelist from file namelist.init_atmosphere
+ Reading streams configuration from file streams.init_atmosphere
+ Found mesh stream with filename template Gansu.static.nc
+ Using default io_type for mesh stream
+  ** Attempting to bootstrap MPAS framework using stream: input
+ Bootstrapping framework with mesh fields from input file 'Gansu.static.nc'
+WARNING: Attribute file_id not found in Gansu.static.nc
+WARNING:   Using '' for the previous file_id.
+WARNING: Attribute parent_id not found in Gansu.static.nc
+WARNING:   Setting parent_id to ''
+WARNING: Attribute mesh_spec not found in Gansu.static.nc
+WARNING:   Setting mesh_spec to '0.0'
+  * Requested field lbc_scalars is deactivated due to packages, or is a scratch variable.
+  * Requested field lbc_u is deactivated due to packages, or is a scratch variable.
+  * Requested field lbc_w is deactivated due to packages, or is a scratch variable.
+  * Requested field lbc_rho is deactivated due to packages, or is a scratch variable.
+  * Requested field lbc_theta is deactivated due to packages, or is a scratch variable.
+ 
+Parsing run-time I/O configuration from streams.init_atmosphere ...
+ 
+ -----  found immutable stream "input" in streams.init_atmosphere  -----
+         filename template:  Gansu.static.nc
+         filename interval:  none
+         direction:          input
+         reference time:     initial_time
+         record interval:    -
+         input alarm:        initial_only
+ 
+ -----  found immutable stream "output" in streams.init_atmosphere  -----
+         filename template:  Gansu.init.nc
+         filename interval:  none
+         clobber mode:       overwrite
+         direction:          output
+         reference time:     initial_time
+         record interval:    -
+         output alarm:       initial_only
+         package:            initial_conds
+
+ 
+ -----  found immutable stream "surface" in streams.init_atmosphere  -----
+         filename template:  x1.40962.sfc_update.nc
+         filename interval:  none
+         direction:          output
+         reference time:     initial_time
+         record interval:    -
+         output alarm:       86400
+         package:            sfc_update
+
+ 
+ -----  found immutable stream "lbc" in streams.init_atmosphere  -----
+         filename template:  lbc.$Y-$M-$D_$h.$m.$s.nc
+         filename interval:  1:00:00
+         direction:          output
+         reference time:     initial_time
+         record interval:    -
+         output alarm:       1:00:00
+         package:            lbcs
+
+ 
+ ----- done parsing run-time I/O from streams.init_atmosphere -----
+
+  ** Validating streams
+ 
+ 
+ Reading dimensions from input streams ...
+ 
+ ----- reading dimensions from stream 'input' using file Gansu.static.nc
+        nCells = 122776
+        nEdges = 369644
+        nVertices = 246869
+        TWO = 2
+        maxEdges = 7
+        maxEdges2 = 14
+        vertexDegree = 3
+        R3 = 3
+        nMonths = 12
+        FIFTEEN = 15
+        TWENTYONE = 21
+ 
+ ----- done reading dimensions from input streams -----
+ 
+ 
+ Processing decomposed dimensions ...
+ 
+  ----- done processing decomposed dimensions -----
+ 
+ 
+ Assigning remaining dimensions from definitions in Registry.xml ...
+        THREE = 3
+        nVertLevels = 65 (config_nvertlevels)
+        nSoilLevels = 4 (config_nsoillevels)
+        nFGLevels = 138 (config_nfglevels)
+        nFGSoilLevels = 4 (config_nfgsoillevels)
+        nVertLevelsP1 = 66
+ 
+  ----- done assigning dimensions from Registry.xml -----
+ 
+ 
+  real-data GFS test case
+ Using option 'linear' for vertical extrapolation of temperature
+ max ter = 5490.06609020699
+ Setting up vertical levels as in 2014 TC experiments
+ 
+ --- config_tc_vertical_grid = T
+ --- als   = 0.750000000000000E-01
+ --- alt   = 1.70000000000000
+ --- zetal = 0.750000000000000
+ ********************************************************************************
+ * Note: als, alt, and zetal have not been tested for nVertLevels = 65
+ *       The values of these parameters have only been tested with 41 and 55 layers
+ ********************************************************************************
+ 
+ 1 0.00000000000000 1.00000000000000
+ 2 25.9484482206376 0.999994462162439
+ 3 57.7651005580000 0.999972556198496
+ 4 95.6376877560310 0.999924775014249
+ 5 139.753940558674 0.999839374083792
+ 6 190.301589709874 0.999702185498686
+ 7 247.468365953573 0.999496429058017
+ 8 311.442000033716 0.999202521690016
+ 9 382.410222694246 0.998797886868106
+ 10 460.560764679108 0.998256766121012
+ 11 546.081356732245 0.997550035243018
+ 12 639.159729597600 0.996645028391235
+ 13 739.983614019117 0.995505373914801
+ 14 848.740740740741 0.994090846498146
+ 15 965.618840506415 0.992357241015817
+ 16 1090.80564406008 0.990256274386497
+ 17 1224.48888214569 0.987735522670996
+ 18 1366.85628550717 0.984738401670727
+ 19 1518.09558488849 0.981204200331109
+ 20 1678.39451103357 0.977068177312398
+ 21 1847.94079468636 0.972261732124385
+ 22 2026.92216659081 0.966712663186150
+ 23 2215.52635749086 0.960345526011710
+ 24 2413.94109813045 0.953082105367255
+ 25 2622.35411925353 0.944842015612737
+ 26 2840.95315160404 0.935543443431325
+ 27 3069.92592592593 0.925104046651545
+ 28 3309.46017296313 0.913442021751008
+ 29 3559.74362345960 0.900477350757099
+ 30 3820.96400815927 0.886133235479249
+ 31 4093.30905780610 0.870337723165326
+ 32 4376.96650314402 0.853025522620516
+ 33 4672.12407491698 0.834140003423257
+ 34 4978.96950386892 0.813635363008128
+ 35 5297.69052074378 0.791478936991884
+ 36 5628.47485628551 0.767653617190624
+ 37 5971.51024123805 0.742160329394197
+ 38 6326.98440634536 0.715020509321289
+ 39 6695.08508235136 0.686278500608489
+ 40 7076.00000000000 0.656003783690516
+ 41 7469.91689003524 0.624292929703036
+ 42 7877.02348320100 0.591271159995559
+ 43 8297.50751024124 0.557093380618259
+ 44 8731.55670189990 0.521944553605022
+ 45 9179.35878892092 0.486039264576991
+ 46 9641.10150204825 0.449620350846507
+ 47 10116.9725720258 0.412956467583981
+ 48 10607.1597295976 0.376338493432078
+ 49 11111.8507055075 0.340074712693658
+ 50 11630.7692307692 0.304515716620570
+ 51 12153.8461538462 0.270623662888892
+ 52 12676.9230769231 0.238835543755954
+ 53 13200.0000000000 0.209257312764917
+ 54 13723.0769230769 0.181956987600388
+ 55 14246.1538461538 0.156966159041085
+ 56 14769.2307692308 0.134282125543321
+ 57 15292.3076923077 0.113870576506367
+ 58 15815.3846153846 0.956687371079307E-01
+ 59 16338.4615384615 0.795888799103384E-01
+ 60 16861.5384615385 0.655221033756947E-01
+ 61 17384.6153846154 0.533422750697289E-01
+ 62 17907.6923076923 0.429100376849966E-01
+ 63 18430.7692307692 0.340767790078972E-01
+ 64 18953.8461538462 0.266884724541565E-01
+ 65 19476.9230769231 0.205893026020124E-01
+ 66 20000.0000000000 0.156250000000000E-01
+ 2 33 0.177862500298746E-05 0.995894242845936
+ 3 34 0.881439844257300E-05 0.983526837382572
+ 4 35 0.241612693033452E-04 0.962137645389249
+ 5 36 0.515928757053398E-04 0.930175955895732
+ 6 37 0.956635390305651E-04 0.886112580045653
+ 7 38 0.161771119975495E-03 0.828785199830880
+ 8 39 0.256221736529530E-03 0.757896030762769
+ 9 40 0.386296343879424E-03 0.674699306038638
+ 10 41 0.560319176239683E-03 0.582833955579206
+ 11 42 0.787728050608927E-03 0.489110618213478
+ 12 43 0.107914653245222E-02 0.403852173235284
+ 13 44 0.144645796330937E-02 0.310396304333283
+ 14 45 0.190288135032919E-02 0.300378216114938
+ 15 46 0.246304911772975E-02 0.300082144280841
+ 16 47 0.314308672018456E-02 0.300254146467202
+ 17 48 0.396069411813473E-02 0.300317424671884
+ 18 49 0.493522911502716E-02 0.300672818922106
+ 19 50 0.608779255647856E-02 0.300775381431615
+ 20 51 0.744131539136559E-02 0.304236649736453
+ 21 52 0.902064759484091E-02 0.302788395738428
+ 22 53 0.108526489532751E-01 0.302156824693323
+ 23 54 0.129662817111247E-01 0.302717038923335
+ 24 55 0.153927050797261E-01 0.300919218469478
+ 25 56 0.181653716080158E-01 0.300575780904413
+ 26 57 0.213201254151754E-01 0.387614707454084
+ 27 58 0.248953022852046E-01 0.413604744576629
+ 28 59 0.289318316234181E-01 0.422103911193671
+ 29 60 0.334733402748698E-01 0.434708226701733
+ 30 61 0.385662582047025E-01 0.451622518155922
+ 31 62 0.442599260404237E-01 0.472399050073313
+ 32 63 0.506067044761068E-01 0.496078398841047
+ 33 64 0.576620855385195E-01 0.521421981047160
+ 34 65 0.654848057151770E-01 0.546028989077658
+ 35 66 0.741369609443213E-01 0.570201779521375
+ 36 67 0.836841234668274E-01 0.593349338136139
+ 37 68 0.941954605400343E-01 0.588537604839285
+ 38 69 0.105743855013503 0.584023392425674
+ 39 70 0.117402972478162 0.583382718886023
+ 40 71 0.117402972478162 0.590901374015294
+ 41 72 0.117402972478162 0.597545401212355
+ 42 73 0.117402972478162 0.603920241061854
+ 43 74 0.117402972478162 0.609557150815073
+ 44 75 0.117402972478162 0.615917773180795
+ 45 76 0.117402972478162 0.623832130582098
+ 46 77 0.117402972478162 0.633452904974229
+ 47 78 0.117402972478162 0.644951490279465
+ 48 79 0.117402972478162 0.658333736374761
+ 49 80 0.117402972478162 0.673519580661654
+ 50 81 0.117402972478162 0.690591759396360
+ 51 82 0.117402972478162 0.708810288837503
+ 52 83 0.117402972478162 0.728007496658098
+ 53 84 0.117402972478162 0.747843219578687
+ 54 85 0.117402972478162 0.767545383423876
+ 55 86 0.117402972478162 0.787415407681735
+ 56 87 0.117402972478162 0.807210236126040
+ 57 88 0.117402972478162 0.826664656228650
+ 58 89 0.117402972478162 0.845540800676005
+ 59 90 0.117402972478162 0.863640091947796
+ 60 91 0.117402972478162 0.880787965971017
+ 61 92 0.117402972478162 0.896843024854033
+ 62 93 0.117402972478162 0.911697389243452
+ 63 94 0.117402972478162 0.925275969004105
+ 64 95 0.117402972478162 0.937535894156552
+ 65 96 0.117402972478162 0.948465156129986
+  grid metrics setup complete
+ minval, maxval of LANDSEA = 0.00000000000000 1.00000000000000
+ Interpolating U at 1 200100.000000000
+ Interpolating V at 1 200100.000000000
+ Interpolating TT at 1 200100.000000000
+ Interpolating RH at 1 200100.000000000
+ Interpolating PSFC
+ Interpolating PMSL
+ Interpolating SKINTEMP
+ Interpolating SEAICE
+ Interpolating ST000007
+ Interpolating ST007028
+ Interpolating ST028100
+ Interpolating ST100255
+ Interpolating SM000007
+ Interpolating SM007028
+ Interpolating SM028100
+ Interpolating SM100255
+ Interpolating SPECHUMD at 2 137.000000000000
+ Interpolating TT at 2 137.000000000000
+ Interpolating U at 2 137.000000000000
+ Interpolating V at 2 137.000000000000
+ Interpolating SPECHUMD at 3 136.000000000000
+ Interpolating TT at 3 136.000000000000
+ Interpolating U at 3 136.000000000000
+ Interpolating V at 3 136.000000000000
+ Interpolating SPECHUMD at 4 135.000000000000
+ Interpolating TT at 4 135.000000000000
+ Interpolating U at 4 135.000000000000
+ Interpolating V at 4 135.000000000000
+ Interpolating SPECHUMD at 5 134.000000000000
+ Interpolating TT at 5 134.000000000000
+ Interpolating U at 5 134.000000000000
+ Interpolating V at 5 134.000000000000
+ Interpolating SPECHUMD at 6 133.000000000000
+ Interpolating TT at 6 133.000000000000
+ Interpolating U at 6 133.000000000000
+ Interpolating V at 6 133.000000000000
+ Interpolating SPECHUMD at 7 132.000000000000
+ Interpolating TT at 7 132.000000000000
+ Interpolating U at 7 132.000000000000
+ Interpolating V at 7 132.000000000000
+ Interpolating SPECHUMD at 8 131.000000000000
+ Interpolating TT at 8 131.000000000000
+ Interpolating U at 8 131.000000000000
+ Interpolating V at 8 131.000000000000
+ Interpolating SPECHUMD at 9 130.000000000000
+ Interpolating TT at 9 130.000000000000
+ Interpolating U at 9 130.000000000000
+ Interpolating V at 9 130.000000000000
+ Interpolating SPECHUMD at 10 129.000000000000
+ Interpolating TT at 10 129.000000000000
+ Interpolating U at 10 129.000000000000
+ Interpolating V at 10 129.000000000000
+ Interpolating SPECHUMD at 11 128.000000000000
+ Interpolating TT at 11 128.000000000000
+ Interpolating U at 11 128.000000000000
+ Interpolating V at 11 128.000000000000
+ Interpolating SPECHUMD at 12 127.000000000000
+ Interpolating TT at 12 127.000000000000
+ Interpolating U at 12 127.000000000000
+ Interpolating V at 12 127.000000000000
+ Interpolating SPECHUMD at 13 126.000000000000
+ Interpolating TT at 13 126.000000000000
+ Interpolating U at 13 126.000000000000
+ Interpolating V at 13 126.000000000000
+ Interpolating SPECHUMD at 14 125.000000000000
+ Interpolating TT at 14 125.000000000000
+ Interpolating U at 14 125.000000000000
+ Interpolating V at 14 125.000000000000
+ Interpolating SPECHUMD at 15 124.000000000000
+ Interpolating TT at 15 124.000000000000
+ Interpolating U at 15 124.000000000000
+ Interpolating V at 15 124.000000000000
+ Interpolating SPECHUMD at 16 123.000000000000
+ Interpolating TT at 16 123.000000000000
+ Interpolating U at 16 123.000000000000
+ Interpolating V at 16 123.000000000000
+ Interpolating SPECHUMD at 17 122.000000000000
+ Interpolating TT at 17 122.000000000000
+ Interpolating U at 17 122.000000000000
+ Interpolating V at 17 122.000000000000
+ Interpolating SPECHUMD at 18 121.000000000000
+ Interpolating TT at 18 121.000000000000
+ Interpolating U at 18 121.000000000000
+ Interpolating V at 18 121.000000000000
+ Interpolating SPECHUMD at 19 120.000000000000
+ Interpolating TT at 19 120.000000000000
+ Interpolating U at 19 120.000000000000
+ Interpolating V at 19 120.000000000000
+ Interpolating SPECHUMD at 20 119.000000000000
+ Interpolating TT at 20 119.000000000000
+ Interpolating U at 20 119.000000000000
+ Interpolating V at 20 119.000000000000
+ Interpolating SPECHUMD at 21 118.000000000000
+ Interpolating TT at 21 118.000000000000
+ Interpolating U at 21 118.000000000000
+ Interpolating V at 21 118.000000000000
+ Interpolating SPECHUMD at 22 117.000000000000
+ Interpolating TT at 22 117.000000000000
+ Interpolating U at 22 117.000000000000
+ Interpolating V at 22 117.000000000000
+ Interpolating SPECHUMD at 23 116.000000000000
+ Interpolating TT at 23 116.000000000000
+ Interpolating U at 23 116.000000000000
+ Interpolating V at 23 116.000000000000
+ Interpolating SPECHUMD at 24 115.000000000000
+ Interpolating TT at 24 115.000000000000
+ Interpolating U at 24 115.000000000000
+ Interpolating V at 24 115.000000000000
+ Interpolating SPECHUMD at 25 114.000000000000
+ Interpolating TT at 25 114.000000000000
+ Interpolating U at 25 114.000000000000
+ Interpolating V at 25 114.000000000000
+ Interpolating SPECHUMD at 26 113.000000000000
+ Interpolating TT at 26 113.000000000000
+ Interpolating U at 26 113.000000000000
+ Interpolating V at 26 113.000000000000
+ Interpolating SPECHUMD at 27 112.000000000000
+ Interpolating TT at 27 112.000000000000
+ Interpolating U at 27 112.000000000000
+ Interpolating V at 27 112.000000000000
+ Interpolating SPECHUMD at 28 111.000000000000
+ Interpolating TT at 28 111.000000000000
+ Interpolating U at 28 111.000000000000
+ Interpolating V at 28 111.000000000000
+ Interpolating SPECHUMD at 29 110.000000000000
+ Interpolating TT at 29 110.000000000000
+ Interpolating U at 29 110.000000000000
+ Interpolating V at 29 110.000000000000
+ Interpolating SPECHUMD at 30 109.000000000000
+ Interpolating TT at 30 109.000000000000
+ Interpolating U at 30 109.000000000000
+ Interpolating V at 30 109.000000000000
+ Interpolating SPECHUMD at 31 108.000000000000
+ Interpolating TT at 31 108.000000000000
+ Interpolating U at 31 108.000000000000
+ Interpolating V at 31 108.000000000000
+ Interpolating SPECHUMD at 32 107.000000000000
+ Interpolating TT at 32 107.000000000000
+ Interpolating U at 32 107.000000000000
+ Interpolating V at 32 107.000000000000
+ Interpolating SPECHUMD at 33 106.000000000000
+ Interpolating TT at 33 106.000000000000
+ Interpolating U at 33 106.000000000000
+ Interpolating V at 33 106.000000000000
+ Interpolating SPECHUMD at 34 105.000000000000
+ Interpolating TT at 34 105.000000000000
+ Interpolating U at 34 105.000000000000
+ Interpolating V at 34 105.000000000000
+ Interpolating SPECHUMD at 35 104.000000000000
+ Interpolating TT at 35 104.000000000000
+ Interpolating U at 35 104.000000000000
+ Interpolating V at 35 104.000000000000
+ Interpolating SPECHUMD at 36 103.000000000000
+ Interpolating TT at 36 103.000000000000
+ Interpolating U at 36 103.000000000000
+ Interpolating V at 36 103.000000000000
+ Interpolating SPECHUMD at 37 102.000000000000
+ Interpolating TT at 37 102.000000000000
+ Interpolating U at 37 102.000000000000
+ Interpolating V at 37 102.000000000000
+ Interpolating SPECHUMD at 38 101.000000000000
+ Interpolating TT at 38 101.000000000000
+ Interpolating U at 38 101.000000000000
+ Interpolating V at 38 101.000000000000
+ Interpolating SPECHUMD at 39 100.000000000000
+ Interpolating TT at 39 100.000000000000
+ Interpolating U at 39 100.000000000000
+ Interpolating V at 39 100.000000000000
+ Interpolating SPECHUMD at 40 99.0000000000000
+ Interpolating TT at 40 99.0000000000000
+ Interpolating U at 40 99.0000000000000
+ Interpolating V at 40 99.0000000000000
+ Interpolating SPECHUMD at 41 98.0000000000000
+ Interpolating TT at 41 98.0000000000000
+ Interpolating U at 41 98.0000000000000
+ Interpolating V at 41 98.0000000000000
+ Interpolating SPECHUMD at 42 97.0000000000000
+ Interpolating TT at 42 97.0000000000000
+ Interpolating U at 42 97.0000000000000
+ Interpolating V at 42 97.0000000000000
+ Interpolating SPECHUMD at 43 96.0000000000000
+ Interpolating TT at 43 96.0000000000000
+ Interpolating U at 43 96.0000000000000
+ Interpolating V at 43 96.0000000000000
+ Interpolating SPECHUMD at 44 95.0000000000000
+ Interpolating TT at 44 95.0000000000000
+ Interpolating U at 44 95.0000000000000
+ Interpolating V at 44 95.0000000000000
+ Interpolating SPECHUMD at 45 94.0000000000000
+ Interpolating TT at 45 94.0000000000000
+ Interpolating U at 45 94.0000000000000
+ Interpolating V at 45 94.0000000000000
+ Interpolating SPECHUMD at 46 93.0000000000000
+ Interpolating TT at 46 93.0000000000000
+ Interpolating U at 46 93.0000000000000
+ Interpolating V at 46 93.0000000000000
+ Interpolating SPECHUMD at 47 92.0000000000000
+ Interpolating TT at 47 92.0000000000000
+ Interpolating U at 47 92.0000000000000
+ Interpolating V at 47 92.0000000000000
+ Interpolating SPECHUMD at 48 91.0000000000000
+ Interpolating TT at 48 91.0000000000000
+ Interpolating U at 48 91.0000000000000
+ Interpolating V at 48 91.0000000000000
+ Interpolating SPECHUMD at 49 90.0000000000000
+ Interpolating TT at 49 90.0000000000000
+ Interpolating U at 49 90.0000000000000
+ Interpolating V at 49 90.0000000000000
+ Interpolating SPECHUMD at 50 89.0000000000000
+ Interpolating TT at 50 89.0000000000000
+ Interpolating U at 50 89.0000000000000
+ Interpolating V at 50 89.0000000000000
+ Interpolating SPECHUMD at 51 88.0000000000000
+ Interpolating TT at 51 88.0000000000000
+ Interpolating U at 51 88.0000000000000
+ Interpolating V at 51 88.0000000000000
+ Interpolating SPECHUMD at 52 87.0000000000000
+ Interpolating TT at 52 87.0000000000000
+ Interpolating U at 52 87.0000000000000
+ Interpolating V at 52 87.0000000000000
+ Interpolating SPECHUMD at 53 86.0000000000000
+ Interpolating TT at 53 86.0000000000000
+ Interpolating U at 53 86.0000000000000
+ Interpolating V at 53 86.0000000000000
+ Interpolating SPECHUMD at 54 85.0000000000000
+ Interpolating TT at 54 85.0000000000000
+ Interpolating U at 54 85.0000000000000
+ Interpolating V at 54 85.0000000000000
+ Interpolating SPECHUMD at 55 84.0000000000000
+ Interpolating TT at 55 84.0000000000000
+ Interpolating U at 55 84.0000000000000
+ Interpolating V at 55 84.0000000000000
+ Interpolating SPECHUMD at 56 83.0000000000000
+ Interpolating TT at 56 83.0000000000000
+ Interpolating U at 56 83.0000000000000
+ Interpolating V at 56 83.0000000000000
+ Interpolating SPECHUMD at 57 82.0000000000000
+ Interpolating TT at 57 82.0000000000000
+ Interpolating U at 57 82.0000000000000
+ Interpolating V at 57 82.0000000000000
+ Interpolating SPECHUMD at 58 81.0000000000000
+ Interpolating TT at 58 81.0000000000000
+ Interpolating U at 58 81.0000000000000
+ Interpolating V at 58 81.0000000000000
+ Interpolating SPECHUMD at 59 80.0000000000000
+ Interpolating TT at 59 80.0000000000000
+ Interpolating U at 59 80.0000000000000
+ Interpolating V at 59 80.0000000000000
+ Interpolating SPECHUMD at 60 79.0000000000000
+ Interpolating TT at 60 79.0000000000000
+ Interpolating U at 60 79.0000000000000
+ Interpolating V at 60 79.0000000000000
+ Interpolating SPECHUMD at 61 78.0000000000000
+ Interpolating TT at 61 78.0000000000000
+ Interpolating U at 61 78.0000000000000
+ Interpolating V at 61 78.0000000000000
+ Interpolating SPECHUMD at 62 77.0000000000000
+ Interpolating TT at 62 77.0000000000000
+ Interpolating U at 62 77.0000000000000
+ Interpolating V at 62 77.0000000000000
+ Interpolating SPECHUMD at 63 76.0000000000000
+ Interpolating TT at 63 76.0000000000000
+ Interpolating U at 63 76.0000000000000
+ Interpolating V at 63 76.0000000000000
+ Interpolating SPECHUMD at 64 75.0000000000000
+ Interpolating TT at 64 75.0000000000000
+ Interpolating U at 64 75.0000000000000
+ Interpolating V at 64 75.0000000000000
+ Interpolating SPECHUMD at 65 74.0000000000000
+ Interpolating TT at 65 74.0000000000000
+ Interpolating U at 65 74.0000000000000
+ Interpolating V at 65 74.0000000000000
+ Interpolating SPECHUMD at 66 73.0000000000000
+ Interpolating TT at 66 73.0000000000000
+ Interpolating U at 66 73.0000000000000
+ Interpolating V at 66 73.0000000000000
+ Interpolating SPECHUMD at 67 72.0000000000000
+ Interpolating TT at 67 72.0000000000000
+ Interpolating U at 67 72.0000000000000
+ Interpolating V at 67 72.0000000000000
+ Interpolating SPECHUMD at 68 71.0000000000000
+ Interpolating TT at 68 71.0000000000000
+ Interpolating U at 68 71.0000000000000
+ Interpolating V at 68 71.0000000000000
+ Interpolating SPECHUMD at 69 70.0000000000000
+ Interpolating TT at 69 70.0000000000000
+ Interpolating U at 69 70.0000000000000
+ Interpolating V at 69 70.0000000000000
+ Interpolating SPECHUMD at 70 69.0000000000000
+ Interpolating TT at 70 69.0000000000000
+ Interpolating U at 70 69.0000000000000
+ Interpolating V at 70 69.0000000000000
+ Interpolating SPECHUMD at 71 68.0000000000000
+ Interpolating TT at 71 68.0000000000000
+ Interpolating U at 71 68.0000000000000
+ Interpolating V at 71 68.0000000000000
+ Interpolating SPECHUMD at 72 67.0000000000000
+ Interpolating TT at 72 67.0000000000000
+ Interpolating U at 72 67.0000000000000
+ Interpolating V at 72 67.0000000000000
+ Interpolating SPECHUMD at 73 66.0000000000000
+ Interpolating TT at 73 66.0000000000000
+ Interpolating U at 73 66.0000000000000
+ Interpolating V at 73 66.0000000000000
+ Interpolating SPECHUMD at 74 65.0000000000000
+ Interpolating TT at 74 65.0000000000000
+ Interpolating U at 74 65.0000000000000
+ Interpolating V at 74 65.0000000000000
+ Interpolating SPECHUMD at 75 64.0000000000000
+ Interpolating TT at 75 64.0000000000000
+ Interpolating U at 75 64.0000000000000
+ Interpolating V at 75 64.0000000000000
+ Interpolating SPECHUMD at 76 63.0000000000000
+ Interpolating TT at 76 63.0000000000000
+ Interpolating U at 76 63.0000000000000
+ Interpolating V at 76 63.0000000000000
+ Interpolating SPECHUMD at 77 62.0000000000000
+ Interpolating TT at 77 62.0000000000000
+ Interpolating U at 77 62.0000000000000
+ Interpolating V at 77 62.0000000000000
+ Interpolating SPECHUMD at 78 61.0000000000000
+ Interpolating TT at 78 61.0000000000000
+ Interpolating U at 78 61.0000000000000
+ Interpolating V at 78 61.0000000000000
+ Interpolating SPECHUMD at 79 60.0000000000000
+ Interpolating TT at 79 60.0000000000000
+ Interpolating U at 79 60.0000000000000
+ Interpolating V at 79 60.0000000000000
+ Interpolating SPECHUMD at 80 59.0000000000000
+ Interpolating TT at 80 59.0000000000000
+ Interpolating U at 80 59.0000000000000
+ Interpolating V at 80 59.0000000000000
+ Interpolating SPECHUMD at 81 58.0000000000000
+ Interpolating TT at 81 58.0000000000000
+ Interpolating U at 81 58.0000000000000
+ Interpolating V at 81 58.0000000000000
+ Interpolating SPECHUMD at 82 57.0000000000000
+ Interpolating TT at 82 57.0000000000000
+ Interpolating U at 82 57.0000000000000
+ Interpolating V at 82 57.0000000000000
+ Interpolating SPECHUMD at 83 56.0000000000000
+ Interpolating TT at 83 56.0000000000000
+ Interpolating U at 83 56.0000000000000
+ Interpolating V at 83 56.0000000000000
+ Interpolating SPECHUMD at 84 55.0000000000000
+ Interpolating TT at 84 55.0000000000000
+ Interpolating U at 84 55.0000000000000
+ Interpolating V at 84 55.0000000000000
+ Interpolating SPECHUMD at 85 54.0000000000000
+ Interpolating TT at 85 54.0000000000000
+ Interpolating U at 85 54.0000000000000
+ Interpolating V at 85 54.0000000000000
+ Interpolating SPECHUMD at 86 53.0000000000000
+ Interpolating TT at 86 53.0000000000000
+ Interpolating U at 86 53.0000000000000
+ Interpolating V at 86 53.0000000000000
+ Interpolating SPECHUMD at 87 52.0000000000000
+ Interpolating TT at 87 52.0000000000000
+ Interpolating U at 87 52.0000000000000
+ Interpolating V at 87 52.0000000000000
+ Interpolating SPECHUMD at 88 51.0000000000000
+ Interpolating TT at 88 51.0000000000000
+ Interpolating U at 88 51.0000000000000
+ Interpolating V at 88 51.0000000000000
+ Interpolating SPECHUMD at 89 50.0000000000000
+ Interpolating TT at 89 50.0000000000000
+ Interpolating U at 89 50.0000000000000
+ Interpolating V at 89 50.0000000000000
+ Interpolating SPECHUMD at 90 49.0000000000000
+ Interpolating TT at 90 49.0000000000000
+ Interpolating U at 90 49.0000000000000
+ Interpolating V at 90 49.0000000000000
+ Interpolating SPECHUMD at 91 48.0000000000000
+ Interpolating TT at 91 48.0000000000000
+ Interpolating U at 91 48.0000000000000
+ Interpolating V at 91 48.0000000000000
+ Interpolating SPECHUMD at 92 47.0000000000000
+ Interpolating TT at 92 47.0000000000000
+ Interpolating U at 92 47.0000000000000
+ Interpolating V at 92 47.0000000000000
+ Interpolating SPECHUMD at 93 46.0000000000000
+ Interpolating TT at 93 46.0000000000000
+ Interpolating U at 93 46.0000000000000
+ Interpolating V at 93 46.0000000000000
+ Interpolating SPECHUMD at 94 45.0000000000000
+ Interpolating TT at 94 45.0000000000000
+ Interpolating U at 94 45.0000000000000
+ Interpolating V at 94 45.0000000000000
+ Interpolating PRESSURE at 95 1.00000000000000
+ Interpolating PRESSURE at 96 2.00000000000000
+ Interpolating PRESSURE at 97 3.00000000000000
+ Interpolating PRESSURE at 98 4.00000000000000
+ Interpolating PRESSURE at 99 5.00000000000000
+ Interpolating PRESSURE at 100 6.00000000000000
+ Interpolating PRESSURE at 101 7.00000000000000
+ Interpolating PRESSURE at 102 8.00000000000000
+ Interpolating PRESSURE at 103 9.00000000000000
+ Interpolating PRESSURE at 104 10.0000000000000
+ Interpolating PRESSURE at 105 11.0000000000000
+ Interpolating PRESSURE at 106 12.0000000000000
+ Interpolating PRESSURE at 107 13.0000000000000
+ Interpolating PRESSURE at 108 14.0000000000000
+ Interpolating PRESSURE at 109 15.0000000000000
+ Interpolating PRESSURE at 110 16.0000000000000
+ Interpolating PRESSURE at 111 17.0000000000000
+ Interpolating PRESSURE at 112 18.0000000000000
+ Interpolating PRESSURE at 113 19.0000000000000
+ Interpolating PRESSURE at 114 20.0000000000000
+ Interpolating PRESSURE at 115 21.0000000000000
+ Interpolating PRESSURE at 116 22.0000000000000
+ Interpolating PRESSURE at 117 23.0000000000000
+ Interpolating PRESSURE at 118 24.0000000000000
+ Interpolating PRESSURE at 119 25.0000000000000
+ Interpolating PRESSURE at 120 26.0000000000000
+ Interpolating PRESSURE at 121 27.0000000000000
+ Interpolating PRESSURE at 122 28.0000000000000
+ Interpolating PRESSURE at 123 29.0000000000000
+ Interpolating PRESSURE at 124 30.0000000000000
+ Interpolating PRESSURE at 125 31.0000000000000
+ Interpolating PRESSURE at 126 32.0000000000000
+ Interpolating PRESSURE at 127 33.0000000000000
+ Interpolating PRESSURE at 128 34.0000000000000
+ Interpolating PRESSURE at 129 35.0000000000000
+ Interpolating PRESSURE at 130 36.0000000000000
+ Interpolating PRESSURE at 131 37.0000000000000
+ Interpolating PRESSURE at 132 38.0000000000000
+ Interpolating PRESSURE at 133 39.0000000000000
+ Interpolating PRESSURE at 134 40.0000000000000
+ Interpolating PRESSURE at 135 41.0000000000000
+ Interpolating PRESSURE at 136 42.0000000000000
+ Interpolating PRESSURE at 137 43.0000000000000
+ Interpolating PRESSURE at 138 44.0000000000000
+ Interpolating PRESSURE at 94 45.0000000000000
+ Interpolating PRESSURE at 93 46.0000000000000
+ Interpolating PRESSURE at 92 47.0000000000000
+ Interpolating PRESSURE at 91 48.0000000000000
+ Interpolating PRESSURE at 90 49.0000000000000
+ Interpolating PRESSURE at 89 50.0000000000000
+ Interpolating PRESSURE at 88 51.0000000000000
+ Interpolating PRESSURE at 87 52.0000000000000
+ Interpolating PRESSURE at 86 53.0000000000000
+ Interpolating PRESSURE at 85 54.0000000000000
+ Interpolating PRESSURE at 84 55.0000000000000
+ Interpolating PRESSURE at 83 56.0000000000000
+ Interpolating PRESSURE at 82 57.0000000000000
+ Interpolating PRESSURE at 81 58.0000000000000
+ Interpolating PRESSURE at 80 59.0000000000000
+ Interpolating PRESSURE at 79 60.0000000000000
+ Interpolating PRESSURE at 78 61.0000000000000
+ Interpolating PRESSURE at 77 62.0000000000000
+ Interpolating PRESSURE at 76 63.0000000000000
+ Interpolating PRESSURE at 75 64.0000000000000
+ Interpolating PRESSURE at 74 65.0000000000000
+ Interpolating PRESSURE at 73 66.0000000000000
+ Interpolating PRESSURE at 72 67.0000000000000
+ Interpolating PRESSURE at 71 68.0000000000000
+ Interpolating PRESSURE at 70 69.0000000000000
+ Interpolating PRESSURE at 69 70.0000000000000
+ Interpolating PRESSURE at 68 71.0000000000000
+ Interpolating PRESSURE at 67 72.0000000000000
+ Interpolating PRESSURE at 66 73.0000000000000
+ Interpolating PRESSURE at 65 74.0000000000000
+ Interpolating PRESSURE at 64 75.0000000000000
+ Interpolating PRESSURE at 63 76.0000000000000
+ Interpolating PRESSURE at 62 77.0000000000000
+ Interpolating PRESSURE at 61 78.0000000000000
+ Interpolating PRESSURE at 60 79.0000000000000
+ Interpolating PRESSURE at 59 80.0000000000000
+ Interpolating PRESSURE at 58 81.0000000000000
+ Interpolating PRESSURE at 57 82.0000000000000
+ Interpolating PRESSURE at 56 83.0000000000000
+ Interpolating PRESSURE at 55 84.0000000000000
+ Interpolating PRESSURE at 54 85.0000000000000
+ Interpolating PRESSURE at 53 86.0000000000000
+ Interpolating PRESSURE at 52 87.0000000000000
+ Interpolating PRESSURE at 51 88.0000000000000
+ Interpolating PRESSURE at 50 89.0000000000000
+ Interpolating PRESSURE at 49 90.0000000000000
+ Interpolating PRESSURE at 48 91.0000000000000
+ Interpolating PRESSURE at 47 92.0000000000000
+ Interpolating PRESSURE at 46 93.0000000000000
+ *************************************************
+ Found 138 levels in the first-guess data
+ *************************************************
+ Assuming model-level input data
+ Setting SST from SKINTEMP
+ Done with soil consistency check
+ SEAICE_FRACTIONAL file not found...
+ OMLD file not found...
+ 
+ --- global_sh_min = 0.00000000000000
+ --- global_sh_max = 0.00000000000000
+ 
+ --- config_use_spechumd = F
+  *** initializing water vapor mixing ratio using first-guess relative humidity
+ 
+ 
+ Recomputing RH w.r.t. ice below freezing
+ 
+ nSoilLevels   = 4
+ nFGSoilLevels = 4
+ 1 0.00000000000000
+ 2 0.350000000000000E-01
+ 3 0.175000000000000
+ 4 0.640000000000000
+ 5 1.77500000000000
+ 6 3.00000000000000
+ 1 1 0.500000000000000E-01 0.00000000000000 0.350000000000000E-01
+ 1 2 0.500000000000000E-01 0.350000000000000E-01 0.175000000000000
+ 1 2 0.500000000000000E-01 0.350000000000000E-01 0.175000000000000
+ 
+ 2 1 0.250000000000000 0.00000000000000 0.350000000000000E-01
+ 2 2 0.250000000000000 0.350000000000000E-01 0.175000000000000
+ 2 3 0.250000000000000 0.175000000000000 0.640000000000000
+ 2 3 0.250000000000000 0.175000000000000 0.640000000000000
+ 
+ 3 1 0.700000000000000 0.00000000000000 0.350000000000000E-01
+ 3 2 0.700000000000000 0.350000000000000E-01 0.175000000000000
+ 3 3 0.700000000000000 0.175000000000000 0.640000000000000
+ 3 4 0.700000000000000 0.640000000000000 1.77500000000000
+ 3 4 0.700000000000000 0.640000000000000 1.77500000000000
+ 
+ 4 1 1.50000000000000 0.00000000000000 0.350000000000000E-01
+ 4 2 1.50000000000000 0.350000000000000E-01 0.175000000000000
+ 4 3 1.50000000000000 0.175000000000000 0.640000000000000
+ 4 4 1.50000000000000 0.640000000000000 1.77500000000000
+ 4 4 1.50000000000000 0.640000000000000 1.77500000000000
+ 
+ --- isice_lu   = 15
+ --- config_frac_seaice      : T
+ --- xice_threshold          : 0.200000000000000E-01
+ 
+ number of seaice cells converted to land cells 2 =           0
+ 
+ ********************************************************
+    Finished running the init_atmosphere core
+ ********************************************************
+ 
+ 
+  Timer information:
+     Globals are computed across all threads and processors
+ 
+  Columns:
+     total time: Global max of accumulated time spent in timer
+     calls: Total number of times this timer was started / stopped.
+     min: Global min of time spent in a single start / stop
+     max: Global max of time spent in a single start / stop
+     avg: Global max of average time spent in a single start / stop
+     pct_tot: Percent of the timer at level 1
+     pct_par: Percent of the parent timer (one level up)
+     par_eff: Parallel efficiency, global average total time / global max total time
+ 
+ 
+    timer_name                                            total       calls        min            max            avg      pct_tot   pct_par     par_eff
+  1 total time                                          59.18593         1       59.18378       59.18593       59.18452   100.00       0.00       1.00
+  2  initialize                                          8.17339         1        8.16595        8.17339        8.17033    13.81      13.81       1.00
+ 
+ -----------------------------------------
+ Total log messages printed:
+    Output messages =                  787
+    Warning messages =                   6
+    Error messages =                     0
+    Critical error messages =            0
+ -----------------------------------------
+ Logging complete.  Closing file at 2021/02/01 10:56:14
